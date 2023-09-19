@@ -157,7 +157,7 @@ namespace BasicStat {
     /**
          * リストの最頻値を計算します。
          * @param numbers 数値のリスト
-         * @returns 最頻値のリスト
+         * @returns 最頻値
          */
     //% block="リストの最頻値を計算する %numbers=variables_get(myList)"
     export function calculateMode(numbers: number[]): number {
