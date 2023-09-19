@@ -194,4 +194,17 @@ namespace BasicStat {
         return calculateMin(modeList);
     }
 
+    /**
+        * リストの標準誤差を計算します。
+        * @param numbers 数値のリスト
+        * @returns 標準誤差
+        */
+    //% block="リストの標準誤差を計算する %numbers=variables_get(myList)"
+    export function calculateES(numbers: number[]): number {
+        let SE;
+        SE = calculateStandardDeviation(numbers) / Math.sqrt(numbers.length);
+        return SE;
+    }
+
+
 }
