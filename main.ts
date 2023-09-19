@@ -2,6 +2,7 @@ input.onButtonPressed(Button.A, function () {
     serial.writeValue("平均値", BasicStat.calculateMean(配列))
     serial.writeValue("標準偏差", BasicStat.calculateStandardDeviation(配列))
     serial.writeValue("中央値", BasicStat.calculateMedian(配列))
+    serial.writeValue("最頻値", BasicStat.calculateMode(配列))
     serial.writeValue("分散", BasicStat.calculateVariance(配列))
     serial.writeValue("尖度", BasicStat.calculateKurtosis(配列))
     serial.writeValue("歪度", BasicStat.calculateSkewness(配列))

@@ -154,5 +154,44 @@ namespace BasicStat {
         let variance = sumOfSquares / numbers.length;
         return Math.sqrt(variance);
     }
+    /**
+         * リストの最頻値を計算します。
+         * @param numbers 数値のリスト
+         * @returns 最頻値のリスト
+         */
+    //% block="リストの最頻値を計算する %numbers=variables_get(myList)"
+    export function calculateMode(numbers: number[]): number {
+        const frequencyMap: number[] = [];
+        let maxFrequency = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+            frequencyMap.push(0);
+        }
+
+        for (let i = 0; i < numbers.length; i++) {
+            frequencyMap[i] = 1;
+            for (let j = i + 1; j < numbers.length; j++) {
+                if (numbers[i] === numbers[j]) {
+                    frequencyMap[i]++;
+                    frequencyMap[j] = -1;
+                }
+            }
+        }
+
+        for (let i = 0; i < numbers.length; i++) {
+            if (frequencyMap[i] !== -1 && frequencyMap[i] > maxFrequency) {
+                maxFrequency = frequencyMap[i];
+            }
+        }
+
+        const modeList: number[] = [];
+        for (let i = 0; i < numbers.length; i++) {
+            if (frequencyMap[i] === maxFrequency) {
+                modeList.push(numbers[i]);
+            }
+        }
+
+        return calculateMin(modeList);
+    }
 
 }
